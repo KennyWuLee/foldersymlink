@@ -18,9 +18,15 @@ if pattern.count("%") != 1:
     print("invalid pattern (must contain %d once)")
     sys.exit(1)
 
-i = 1
+files = []
 for f in os.listdir(targetdir):
-    target = targetdir + '/' + f
+    files.append(os.path.relpath(targetdir + '/' + f))
+
+files.sort()
+
+i = 1
+for f in files:
+    target = f
     linkname = pattern % i
     os.symlink(target, linkname) 
     i += 1
