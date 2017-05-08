@@ -14,7 +14,7 @@ if not os.path.isdir(targetdir):
     print("invalid target (must be directory)")
     sys.exit(1)
 
-if pattern.count("%d") != 1:
+if pattern.count("%") != 1:
     print("invalid pattern (must contain %d once)")
     sys.exit(1)
 
